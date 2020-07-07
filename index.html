@@ -88,7 +88,11 @@
             }
           },
           created() {
-            this.contacts = JSON.parse(localStorage.getItem('contactsApp'));
+            if (localStorage.getItem('contactsApp')) {
+              this.contacts = JSON.parse(localStorage.getItem('contactsApp'));
+            } else {
+              this.contacts = [];
+            }
           },
           methods: {
             saveContact(contact) {
